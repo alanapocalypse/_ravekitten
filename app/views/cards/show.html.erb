@@ -1,0 +1,14 @@
+<%= image_tag @card.image_url(:thumb) %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @card.title %>
+</p>
+
+<p>
+  <strong>Event date:</strong>
+  <%= @card.event_date %>
+</p>
+
+<%= link_to 'Edit', edit_card_path(@card) %> |
+<%= link_to 'Back', cards_path %>

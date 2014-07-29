@@ -1,0 +1,20 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body{
+	padding: 50px;
+}
+
+.card{
+	width: 236px;
+	margin: 14px 7px 0px 7px;
+}
+.card_image{
+	text-align: center;
+}
+.card_info{
+	width: 236px;
+}
+#card_masonry{
+	margin: 0 auto;
+}
