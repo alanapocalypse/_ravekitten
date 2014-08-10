@@ -26,9 +26,14 @@
 			<p>
 			  <%= @card.details %>
 			</p>
+			<p>
+				<% if can? :manage, @card %>
+					<%= link_to 'Edit', edit_card_path(@card) %> | <%= link_to 'Delete', @card, :method => :delete, :confirm => "Are you sure?" %>
+				<% end %>
+			</p>
 		</div>
 	</div>
 </div>
 
-<%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>
+

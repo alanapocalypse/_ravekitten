@@ -4,16 +4,18 @@
       <% @cards.each do |card| %> 
         <div class="card">
           <div class="card_image">
-            <%= image_tag card.image_url(:thumb) %>
+            <%= link_to card do %>
+              <%= image_tag card.image_url(:thumb) %>
+            <% end %>
           </div>
           <div class="card_info">
             <%= card.title %>
             <%= card.start_date %>
             <li><a href="#">Buy Tickets</li>
           </div>
-          <%= link_to 'Show', card %>
+         <!--  <%= link_to 'Show', card %>
           <%= link_to 'Edit', edit_card_path(card) %>
-          <%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to 'Destroy', card, method: :delete, data: { confirm: 'Are you sure?' } %> -->
         </div>
       <% end %>
   </div>

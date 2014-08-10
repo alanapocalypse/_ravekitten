@@ -48,3 +48,6 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'fog'
 gem 'figaro'
+
+gem 'cancancan', '~> 1.9'
+gem 'bcrypt', '~> 3.1.7'
