@@ -1,42 +1,3 @@
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">RaveKitten</a>
-    </div>
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Turn Down<span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">For What</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Naps</a></li>
-            <li><a href="#">Snacks</a></li>
-          </ul>
-        </li>
-      </ul>
-      <form class="navbar-form navbar-left" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Where's Molly?">
-        </div>
-        <button type="submit" class="btn btn-default">Plz Help</button>
-      </form>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Eat</a></li>
-        <li><a href="#">Sleep</a></li>
-        <li><a href="#">Rave</a></li>
-        <li><a href="#">Repeat</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
 <div class ="container-fluid">
   <div id="card_masonry" class="js-masonry"
   data-masonry-options='{ "itemSelector": ".card", "isFitWidth": true }'>
@@ -47,7 +8,7 @@
           </div>
           <div class="card_info">
             <%= card.title %>
-            <%= card.event_date %>
+            <%= card.start_date %>
             <li><a href="#">Buy Tickets</li>
           </div>
           <%= link_to 'Show', card %>
@@ -59,5 +20,6 @@
 </div>
 
   <br>
+  
 
   <%= link_to 'New Card', new_card_path %>

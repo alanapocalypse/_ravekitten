@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140729223140) do
+ActiveRecord::Schema.define(version: 20140809003143) do
 
   create_table "cards", force: true do |t|
     t.string   "title"
     t.string   "image"
-    t.date     "event_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
     t.text     "details"
     t.string   "website"
+    t.date     "start_date"
+    t.date     "end_date"
   end
 
 end

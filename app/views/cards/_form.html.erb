@@ -16,14 +16,31 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
+    <%= f.label :start_date %>
+    <%= f.date_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :event_date %><br>
-    <%= f.date_select :event_date %>
+    <%= f.label :end_date %>
+    <%= f.date_select :end_date %>
+  </div>
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+  <div class="field">
+    <%= f.label :details %>
+    <%= f.text_area :details %>
+  </div>
+  <div class="field">
+    <%= f.label :website %>
+    <%= f.text_field :website %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<%= form_tag import_cards_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
 <% end %>

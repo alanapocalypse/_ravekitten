@@ -1,14 +1,34 @@
-<%= image_tag @card.image_url(:thumb) %>
+<div class="container-fluid card_show">
+	<div class="row">
+		<div class="col-xs-6 card_show_image">
+			<%= image_tag @card.image_url(:large_thumb) %>
+		</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @card.title %>
-</p>
+		<div class="col-xs-6 card_show_text">
+			<p>
+			  <h1><%= @card.title %></h1>
+			</p>
 
-<p>
-  <strong>Event date:</strong>
-  <%= @card.event_date %>
-</p>
+			<p>
+			  <h2><%= @card.location %></h2>
+			</p>
+
+			<p>
+			  <h3><%= @card.start_date %>
+			  	<% if @card.end_date %>
+			  		 - <%= @card.end_date %>
+			  	<% end %></h3>
+			</p>
+			<p>
+			  <strong><%= link_to "Buy Tickets", @card.website %> </strong>
+			</p>
+
+			<p>
+			  <%= @card.details %>
+			</p>
+		</div>
+	</div>
+</div>
 
 <%= link_to 'Edit', edit_card_path(@card) %> |
 <%= link_to 'Back', cards_path %>

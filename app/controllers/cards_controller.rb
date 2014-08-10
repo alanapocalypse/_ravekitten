@@ -51,6 +51,11 @@ class CardsController < ApplicationController
     end
   end
 
+  def import
+    Card.import(params[:file])
+    redirect_to root_url, notice: "Cards imported."
+  end
+
   # DELETE /cards/1
   # DELETE /cards/1.json
   def destroy
@@ -69,6 +74,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:title, :image, :event_date)
+      params.require(:card).permit(:title, :image, :event_date, :location, :website, :details)
     end
 end
