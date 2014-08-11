@@ -1,7 +1,7 @@
 <div class="container-fluid card_show">
-	<div class="row">
-		<div class="col-xs-6 card_show_image">
-			<%= image_tag @card.image_url(:large_thumb) %>
+	<div class="row-fluid">
+		<div class="col-xs-6 card_show_image img-responsive">
+			<%= image_tag @card.image_url(:large_thumb), :class=>"img-responsive" %>
 		</div>
 
 		<div class="col-xs-6 card_show_text">
