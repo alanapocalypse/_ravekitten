@@ -11,7 +11,7 @@
           <div class="card_info">
             <%= card.title %>
             <%= card.start_date %>
-            <li><a href="#">Buy Tickets</li>
+            <li><%= link_to "Buy Tickets", card.website %></li>
           </div>
         </div>
       <% end %>
