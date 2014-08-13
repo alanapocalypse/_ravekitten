@@ -5,7 +5,7 @@ class CardsController < ApplicationController
   # GET /cards
   # GET /cards.json
   def index
-    @cards = Card.all
+    @cards = Card.all.order(:start_date)
   end
 
   # GET /cards/1
@@ -67,17 +67,7 @@ class CardsController < ApplicationController
     end
   end
 
-  def display_date
-    if @card.end_date
-        if @card.start_date.month != @card.end_date.month
-          @card.start_date.strftime("%B %d - ") + @card.end_date.strftime("%B %d %Y")
-        else
-          @card.start_date.strftime("%B %d - ") + @card.end_date.strftime("%d %Y")
-        end
-    else
-      @card.end_date.strftime("%B %d %Y")
-    end
-  end
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -87,6 +77,6 @@ class CardsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def card_params
-      params.require(:card).permit(:title, :image, :event_date, :location, :website, :details)
+      params.require(:card).permit(:title, :image, :start_date, :end_date, :location, :website, :details)
     end
 end

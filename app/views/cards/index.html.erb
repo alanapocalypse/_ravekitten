@@ -3,23 +3,21 @@
   data-masonry-options='{ "itemSelector": ".card", "isFitWidth": true }'>
       <% @cards.each do |card| %> 
         <div class="card">
-          <div class="card_image">
-            <%= link_to card do %>
+          <%= link_to card do %>
+            <div class="card_image">
               <%= image_tag card.image_url(:thumb) %>
-            <% end %>
-          </div>
-          <div class="card_info">
-            <p>
-              <strong><%= card.title %></strong>
-            </p>
-            <p>
-              <%= card.display_date %>
-              <%= card.location %>
-            </p>
-            <p>
-              <button type="button" class="btn btn-default"><%= link_to "Buy Tickets", card.website %></button>
-            </p>
-          </div>
+              
+            </div>
+            <div class="card_info">
+              <p class ="card_title">
+                <strong><%= card.title %></strong>
+              </p>
+              <p class="date_location">
+                <%= card.display_date %>
+                <%= card.location %>
+              </p>
+            </div>
+          <% end %>
         </div>
       <% end %>
   </div>
