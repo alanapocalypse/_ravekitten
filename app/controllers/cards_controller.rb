@@ -67,6 +67,18 @@ class CardsController < ApplicationController
     end
   end
 
+  def display_date
+    if @card.end_date
+        if @card.start_date.month != @card.end_date.month
+          @card.start_date.strftime("%B %d - ") + @card.end_date.strftime("%B %d %Y")
+        else
+          @card.start_date.strftime("%B %d - ") + @card.end_date.strftime("%d %Y")
+        end
+    else
+      @card.end_date.strftime("%B %d %Y")
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_card

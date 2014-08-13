@@ -13,4 +13,16 @@ class Card < ActiveRecord::Base
 		end
 	end
 
+	def display_date
+    if self.end_date
+        if self.start_date.month != self.end_date.month
+          self.start_date.strftime("%B %d - ") + self.end_date.strftime("%B %d %Y")
+        else
+          self.start_date.strftime("%B %d - ") + self.end_date.strftime("%d %Y")
+        end
+    else
+      self.start_date.strftime("%B %d %Y")
+    end
+  end
+
 end

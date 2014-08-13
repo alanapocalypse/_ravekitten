@@ -9,9 +9,16 @@
             <% end %>
           </div>
           <div class="card_info">
-            <%= card.title %>
-            <%= card.start_date %>
-            <li><%= link_to "Buy Tickets", card.website %></li>
+            <p>
+              <strong><%= card.title %></strong>
+            </p>
+            <p>
+              <%= card.display_date %>
+              <%= card.location %>
+            </p>
+            <p>
+              <button type="button" class="btn btn-default"><%= link_to "Buy Tickets", card.website %></button>
+            </p>
           </div>
         </div>
       <% end %>

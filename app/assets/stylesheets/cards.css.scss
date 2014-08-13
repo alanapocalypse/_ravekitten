@@ -17,12 +17,15 @@ body{
 .card{
 	width: 236px;
 	margin: 14px 7px 0px 7px;
+	background-color: black;
+	color: white;
 }
 .card_image{
 	text-align: center;
 }
 .card_info{
 	width: 236px;
+	text-align: center;
 }
 #card_masonry{
 	margin: 0 auto;
