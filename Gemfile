@@ -51,3 +51,6 @@ gem 'figaro'
 
 gem 'cancancan', '~> 1.9'
 gem 'bcrypt', '~> 3.1.7'
+
+gem 'mechanize'
+gem 'chronic'

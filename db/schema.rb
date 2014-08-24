@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140810232037) do
+ActiveRecord::Schema.define(version: 20140823225301) do
 
   create_table "cards", force: true do |t|
     t.string   "title"
@@ -23,6 +23,8 @@ ActiveRecord::Schema.define(version: 20140810232037) do
     t.string   "website"
     t.date     "start_date"
     t.date     "end_date"
+    t.text     "lineup"
+    t.string   "tickets"
   end
 
   create_table "users", force: true do |t|
