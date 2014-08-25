@@ -37,7 +37,7 @@ task :scrape_mfj => :environment do
 
 		card = Card.find_or_create_by!(title: title)
 		card.lineup = fest.css(".lineupguide").text.split(/\n/).drop(2).join
-		card.website = fest.css("strong+ a")[0]["href"]
+		card.website = fest.at('a:contains("Official Site")')["href"]
 		card.save!
 	end
 end
