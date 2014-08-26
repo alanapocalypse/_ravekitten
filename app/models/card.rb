@@ -32,11 +32,13 @@ class Card < ActiveRecord::Base
   end
 
   def countdown
-  	"#{daysleft.abs} days"
+  	if daysleft < 0
+  		"#{daysleft.abs} days"
+  	end
   end
 
-  # def over?
-  # 	true if self.daysleft >= 0
-  # end
+  def over?
+  	daysleft >= 0
+  end
 
 end
