@@ -38,7 +38,7 @@ class Card < ActiveRecord::Base
   end
 
   def over?
-  	true if daysleft >= 0
+  	true if self.daysleft >= 0
   end
 
 end
