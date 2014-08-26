@@ -13,17 +13,32 @@ class Card < ActiveRecord::Base
 		end
 	end
 
+	# Date stuff
 	def display_date
 		return "" unless start_date
-    if self.end_date
-        if self.start_date.month != self.end_date.month
-          self.start_date.strftime("%B %d - ") + self.end_date.strftime("%B %d %Y")
+    if end_date
+        if start_date.month != end_date.month
+          start_date.strftime("%B %d - ") + end_date.strftime("%B %d %Y")
         else
-          self.start_date.strftime("%B %d - ") + self.end_date.strftime("%d %Y")
+          start_date.strftime("%B %d - ") + end_date.strftime("%d %Y")
         end
     else
-      self.start_date.strftime("%B %d %Y")
+      start_date.strftime("%B %d %Y")
     end
+  end
+
+  def daysleft
+  	(Date.today - start_date).to_i
+  end
+
+  def countdown
+  	if daysleft < 0
+  		"#{daysleft.abs} days"
+  	end
+  end
+
+  def over?
+  	daysleft >= 0
   end
 
 end

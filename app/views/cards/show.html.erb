@@ -14,10 +14,7 @@
 			</p>
 
 			<p>
-			  <h3><%= @card.start_date %>
-			  	<% if @card.end_date %>
-			  		 - <%= @card.end_date %>
-			  	<% end %></h3>
+			  <h3><%= @card.display_date %></h3>
 			</p>
 			<p>
 			  <strong><%= link_to "Buy Tickets", @card.website %> </strong>
@@ -30,6 +27,10 @@
 				<% if can? :manage, @card %>
 					<%= link_to 'Edit', edit_card_path(@card) %> | <%= link_to 'Delete', @card, :method => :delete, :confirm => "Are you sure?" %>
 				<% end %>
+			</p>
+			<p>
+				<h2>Lineup</h2>
+				<%= @card.lineup %>
 			</p>
 		</div>
 	</div>

@@ -2,23 +2,28 @@
   <div id="card_masonry" class="js-masonry"
   data-masonry-options='{ "itemSelector": ".card", "isFitWidth": true }'>
       <% @cards.each do |card| %> 
-        <div class="card">
-          <%= link_to card do %>
-            <div class="card_image">
-              <%= image_tag card.image_url(:thumb) %>
-              
+        <% unless card.over? %>
+          <div class="card">
+            <%= link_to card do %>
+              <div class="card_image">
+                <%= image_tag card.image_url(:thumb) %>
+                
+              </div>
+              <div class="card_info">
+                <p class ="card_title">
+                  <strong><%= card.title %></strong>
+                </p>
+                <p class="date_location">
+                  <%= card.display_date %>
+                  <%= card.location %>
+                </p>
+              </div>
+            <% end %>
+            <div class="countdown">
+              <%= card.countdown %>
             </div>
-            <div class="card_info">
-              <p class ="card_title">
-                <strong><%= card.title %></strong>
-              </p>
-              <p class="date_location">
-                <%= card.display_date %>
-                <%= card.location %>
-              </p>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       <% end %>
   </div>
 </div>

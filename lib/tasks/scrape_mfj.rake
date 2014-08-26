@@ -22,6 +22,17 @@ task :scrape_mfj => :environment do
 			card.save!
 		end
 
+		urls = agent.page.links_with(:href => /(\/festivals\/)/)
+		urls.each do |eventurl|
+			fest = Nokogiri::HTML(open(eventurl.href))
+			title = fest.at_css(".single-title").text.strip
+
+			card = Card.find_or_create_by!(title: title)
+			card.lineup = fest.css(".lineupguide").text.split(/\n/).drop(2).join(", ")
+			card.website = fest.at('a:contains("Official Site")')["href"]
+			card.save!
+		end
+
 		link = agent.page.at(".next")
 
 		if link
@@ -30,16 +41,7 @@ task :scrape_mfj => :environment do
 			break
 		end
 	end
-	urls = agent.page.links_with(:href => /(\/festivals\/)/)
-	urls.each do |eventurl|
-		fest = Nokogiri::HTML(open(eventurl.href))
-		title = fest.at_css(".single-title").text.strip
 
-		card = Card.find_or_create_by!(title: title)
-		card.lineup = fest.css(".lineupguide").text.split(/\n/).drop(2).join
-		card.website = fest.at('a:contains("Official Site")')["href"]
-		card.save!
-	end
 end
 
 # :location => location, :start_date => Chronic.parse(startdate), :end_date => Chronic.parse(enddate))
