@@ -2,7 +2,7 @@
   <div id="card_masonry" class="js-masonry"
   data-masonry-options='{ "itemSelector": ".card", "isFitWidth": true }'>
       <% @cards.each do |card| %> 
-        <% if card.over? %>
+        <% unless card.over? %>
           <div class="card">
             <%= link_to card do %>
               <div class="card_image">
