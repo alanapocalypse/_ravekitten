@@ -15,7 +15,7 @@ task :scrape_mfj => :environment do
 			if festdate.length == 3
 				end_date = nil
 			end
-			card = Card.find_or_create_by!(title: title)
+			card = Card.where(title: title).where(start_date: start_date).first_or_create!
 			card.location = event.at(".festivallocation").text
 			card.start_date = start_date
 			card.end_date = end_date
@@ -27,7 +27,7 @@ task :scrape_mfj => :environment do
 			fest = Nokogiri::HTML(open(eventurl.href))
 			title = fest.at_css(".single-title").text.strip
 
-			card = Card.find_or_create_by!(title: title)
+			card = Card.find_by!(title: title)
 			card.lineup = fest.css(".lineupguide").text.split(/\n/).drop(2).join(", ")
 			card.website = fest.at('a:contains("Official Site")')["href"]
 			card.save!

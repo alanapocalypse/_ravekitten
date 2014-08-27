@@ -3,10 +3,10 @@ class Card < ActiveRecord::Base
 
 	def self.import(file)
 		CSV.foreach(file.path, headers: true) do |row|
-			card = find_or_create_by!( title: row["title"])
-			card.start_date = Date.parse(row["start_date"])
+			startdate = Date.parse(row["start_date"])
+			card = Card.where( title: row["title"]).where(start_date: startdate).first_or_create!
 			unless row["end_date"].nil?
-				card.end_date = Date.parse( row["end_date"])
+				card.end_date = Date.parse(row["end_date"])
 			end
 			card.attributes = row.to_hash
 			card.save!
