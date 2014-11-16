@@ -54,3 +54,4 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'mechanize'
 gem 'chronic'
+gem 'omniauth-facebook'
