@@ -8,7 +8,7 @@ task :scrape_mfj => :environment do
 	agent.get(url)
 	loop do
 		agent.page.search(".singlefestlisting").each do |event|
-			title = event.at(".festivaltitle").text
+			title = event.at(".festivaltitle").text.gsub(/\d{4}/, "")
 			festdate = event.at(".festivaldate").text.split(/\W/).reject! {|x| x.empty?}
 			start_date = festdate.take(2).push(festdate.last).join(" ")
 			end_date = festdate.take(1).push(festdate.last(2)).join(" ")
